@@ -15,11 +15,13 @@ public class WateringController {
     private static GpioPinDigitalOutput pump1;
     private static GpioPinDigitalOutput pump2;
 
+    /*
     //When the application runs on the raspberry pi, send a message (to be sure everything is OK):
     @RequestMapping("/")
     public String greeting(){
         return "Hello world!";
     }
+    */
 
     //Start pump 1:
     @RequestMapping("/pump1On")

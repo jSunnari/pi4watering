@@ -42,7 +42,7 @@ public class WateringController {
         if (pump2 == null){
             pump2 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_05, "pump2", PinState.LOW);
         }
-        pump1.low();
+        pump2.low();
         return "All good!";
     }
     @RequestMapping("/pump2Off")
@@ -50,7 +50,7 @@ public class WateringController {
         if (pump2 == null){
             pump2 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_05, "pump2", PinState.LOW);
         }
-        pump1.high();
+        pump2.high();
         return "All good!";
     }
 }

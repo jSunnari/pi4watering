@@ -21,6 +21,7 @@ public class WateringController {
         return "Hello world!";
     }
 
+    //Start pump 1:
     @RequestMapping("/pump1On")
     public String powerOnPump1(){
         if (pump1 == null){
@@ -29,6 +30,8 @@ public class WateringController {
         pump1.low();
         return "All good!";
     }
+
+    //Stop pump 1:
     @RequestMapping("/pump1Off")
     public String powerOffPump1(){
         if (pump1 == null){
@@ -37,6 +40,8 @@ public class WateringController {
         pump1.high();
         return "All good!";
     }
+
+    //Start pump 2:
     @RequestMapping("/pump2On")
     public String powerOnPump2(){
         if (pump2 == null){
@@ -45,6 +50,8 @@ public class WateringController {
         pump2.low();
         return "All good!";
     }
+
+    //Stop pump 2:
     @RequestMapping("/pump2Off")
     public String powerOffPump2(){
         if (pump2 == null){

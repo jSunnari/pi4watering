@@ -8,7 +8,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * Created by Jonas on 2016-04-12.
  */
 
-
 @Configuration
 public class HtmlMappingConfig extends WebMvcConfigurerAdapter {
 

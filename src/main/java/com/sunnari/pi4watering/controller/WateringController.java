@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class WateringController {
 
     private static GpioController gpioController = GpioFactory.getInstance();
-    private static GpioPinDigitalOutput pump1 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_04, "pump1", PinState.LOW);
+    private static GpioPinDigitalOutput pump1;
     private static GpioPinDigitalOutput pump2 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_05, "pump2", PinState.LOW);
 
 
@@ -22,13 +22,19 @@ public class WateringController {
         return "Hello world!";
     }
 
-    @RequestMapping("/pump")
+    @RequestMapping("/pumpOn")
     public String powerOnPump1(){
+        if (pump1 == null){
+            pump1 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_04, "pump1", PinState.LOW);
+        }
         pump1.high();
         return "All good!";
     }
-    @RequestMapping("/pump")
+    @RequestMapping("/pumpOff")
     public String powerOffPump1(){
+        if (pump1 == null){
+            pump1 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_04, "pump1", PinState.LOW);
+        }
         pump1.low();
         return "All good!";
     }

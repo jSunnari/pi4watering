@@ -2,11 +2,13 @@ package com.sunnari.pi4watering.controller;
 
 import com.pi4j.io.gpio.*;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by Jonas on 2016-04-12.
  */
 
+@RestController
 public class WateringController {
 
     private static GpioController gpioController = GpioFactory.getInstance();

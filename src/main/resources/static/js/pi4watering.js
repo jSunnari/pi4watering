@@ -23,7 +23,7 @@ $(document).ready(function() {
         });
     });
 
-    $("#button2").click(function () {
+    $("#button3").click(function () {
 
         $.ajax("/api/runTwoSec", {
             dataType: "text",

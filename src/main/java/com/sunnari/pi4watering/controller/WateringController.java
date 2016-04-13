@@ -5,6 +5,9 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by Jonas on 2016-04-12.
  */
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class WateringController {
 
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     private static GpioController gpioController = GpioFactory.getInstance();
     private static GpioPinDigitalOutput pump1;
     private static GpioPinDigitalOutput pump2;
@@ -67,8 +71,8 @@ public class WateringController {
 
     //Run pump for 2sec:
     @RequestMapping("/runTwoSec")
-    @Scheduled(cron = "0,30 * * * * *")
-    public void powerOn2sec(){
+    @Scheduled(cron = "00 12 21 * * *")
+    public String powerOn2sec(){
         if (pump1 == null){
             pump1 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_04, "pump1", PinState.LOW);
         }
@@ -79,6 +83,7 @@ public class WateringController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        return "Senast vattnat: " + dateFormat.format(new Date());
     }
 
 }

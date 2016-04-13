@@ -28,7 +28,7 @@ $(document).ready(function() {
         $.ajax("/api/runTwoSec", {
             dataType: "text",
             success: function(data, textStatus) {
-                //alert(data);
+                $("#latest").text(data);
             }
         });
     });

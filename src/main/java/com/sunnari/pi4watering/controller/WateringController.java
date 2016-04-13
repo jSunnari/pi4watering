@@ -1,6 +1,7 @@
 package com.sunnari.pi4watering.controller;
 
 import com.pi4j.io.gpio.*;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -66,6 +67,7 @@ public class WateringController {
 
     //Run pump for 2sec:
     @RequestMapping("/runTwoSec")
+    @Scheduled(cron = "0,30 * * * * *")
     public void powerOn2sec(){
         if (pump1 == null){
             pump1 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_04, "pump1", PinState.LOW);

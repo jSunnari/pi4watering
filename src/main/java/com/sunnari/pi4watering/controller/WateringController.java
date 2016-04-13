@@ -17,14 +17,11 @@ public class WateringController {
     private static GpioPinDigitalOutput pump2;
 
 /*
-
     //When the application runs on the raspberry pi, send a message (to be sure everything is OK):
     @RequestMapping("/")
     public String greeting(){
         return "index.html";
     }
-
-
 */
 
     //Start pump 1:
@@ -65,5 +62,20 @@ public class WateringController {
         }
         pump2.high();
         return "All good!";
+    }
+
+    //Run pump for 2sec:
+    @RequestMapping("/runTwoSec")
+    public void powerOn2sec(){
+        if (pump1 == null){
+            pump1 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_04, "pump1", PinState.LOW);
+        }
+        try {
+            pump1.low();
+            Thread.sleep(2000);
+            pump1.high();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

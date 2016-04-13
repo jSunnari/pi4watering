@@ -5,23 +5,33 @@ $(document).ready(function() {
 
     $("#button1").click(function () {
 
-        $.ajax("/api/pump1On", {
+        $.ajax("/api/togglePump1", {
             dataType: "text",
             success: function(data, textStatus) {
-                alert(data);
+                //alert(data);
             }
         });
-
     });
 
     $("#button2").click(function () {
 
-        $.ajax("/api/pump1Off", {
+        $.ajax("/api/togglePump2", {
             dataType: "text",
             success: function(data, textStatus) {
-                alert(data);
+                //alert(data);
             }
         });
-
     });
+
+    $("#button2").click(function () {
+
+        $.ajax("/api/runTwoSec", {
+            dataType: "text",
+            success: function(data, textStatus) {
+                //alert(data);
+            }
+        });
+    });
+
+
 });

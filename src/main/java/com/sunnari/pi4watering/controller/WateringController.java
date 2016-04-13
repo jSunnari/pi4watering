@@ -72,7 +72,7 @@ public class WateringController {
         }
         try {
             pump1.low();
-            Thread.sleep(2000);
+            Thread.sleep(4000);
             pump1.high();
         } catch (InterruptedException e) {
             e.printStackTrace();

@@ -5,7 +5,7 @@ $(document).ready(function() {
 
     $("#button1").click(function () {
 
-        $.ajax("/api/togglePump1", {
+        $.ajax("/api/pump1On", {
             dataType: "text",
             success: function(data, textStatus) {
                 //alert(data);
@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     $("#button2").click(function () {
 
-        $.ajax("/api/togglePump2", {
+        $.ajax("/api/pump1Off", {
             dataType: "text",
             success: function(data, textStatus) {
                 //alert(data);

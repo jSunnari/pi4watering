@@ -71,8 +71,8 @@ public class WateringController {
 
     //Run pump for 2sec:
     @RequestMapping("/runTwoSec")
-    @Scheduled(cron = "00 12 21 * * *")
-    public String powerOn2sec(){
+    @Scheduled(cron = "00 25 21 * * *")
+    public void powerOn2sec(){
         if (pump1 == null){
             pump1 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_04, "pump1", PinState.LOW);
         }
@@ -83,7 +83,7 @@ public class WateringController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return "Senast vattnat: " + dateFormat.format(new Date());
+
     }
 
 }

@@ -9,18 +9,23 @@ Turns your raspberry-pi to a watering-system for flower-pots (indoor).
   Raspberry pi
 </li>
 <li>
-  Relay
+  USB WIFI Dongle
 </li>
 <li>
-  water-pumps
+  2-channel relay
+</li>
+<li>
+  Water-pump 12v motor
+</li>
+<li>
+  Power-supply 12v
 </li>
 </ul>
 
 ![alt tag](https://dl.dropboxusercontent.com/u/6055409/pi4watering.jpg)
 
-
+<h2>Software:</h2>
 <ul>
-Software:
 <li>
   Java
 </li>

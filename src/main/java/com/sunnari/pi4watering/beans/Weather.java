@@ -15,6 +15,7 @@ public class Weather {
 
     ForecastIO fio = new ForecastIO("ef4e2a6e50214c95bbeeb5ddb0c88df0");
     FIODaily daily = new FIODaily(fio);
+    private double clouds;
 
     public Weather() {
         fio.setUnits(ForecastIO.UNITS_SI);
@@ -22,8 +23,8 @@ public class Weather {
         fio.getForecast("57.721107", "11.934564");
     }
 
-    public String clouds(){
-        return daily.getDay(0).cloudCover().toString();
+    public void clouds(){
+        clouds = daily.getDay(0).cloudCover();
     }
 
 }

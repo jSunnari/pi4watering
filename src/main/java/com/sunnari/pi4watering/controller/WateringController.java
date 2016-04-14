@@ -16,13 +16,11 @@ import java.util.Date;
 @RequestMapping("/api")
 public class WateringController {
 
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     private static GpioController gpioController = GpioFactory.getInstance();
     private static GpioPinDigitalOutput pump1;
     private static GpioPinDigitalOutput pump2;
 
 /*
-    //When the application runs on the raspberry pi, send a message (to be sure everything is OK):
     @RequestMapping("/")
     public String greeting(){
         return "index.html";
@@ -70,8 +68,8 @@ public class WateringController {
     }
 
     //Run pump for 2sec:
-    @RequestMapping("/runTwoSec")
-    @Scheduled(cron = "00 27 17 * * *")
+    @RequestMapping("/runFourSec")
+    @Scheduled(cron = "0 40 7 * * *")
     public void powerOn2sec(){
         if (pump1 == null){
             pump1 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_04, "pump1", PinState.LOW);
@@ -83,7 +81,7 @@ public class WateringController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
     }
+
 
 }

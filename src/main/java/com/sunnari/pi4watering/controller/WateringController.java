@@ -71,7 +71,7 @@ public class WateringController {
 
     //Run pump for 2sec:
     @RequestMapping("/runTwoSec")
-    @Scheduled(cron = "00 20 17 * * *")
+    @Scheduled(cron = "00 27 17 * * *")
     public void powerOn2sec(){
         if (pump1 == null){
             pump1 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_04, "pump1", PinState.LOW);

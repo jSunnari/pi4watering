@@ -16,6 +16,9 @@ Hardware:
 </li>
 </ul>
 
+![alt tag](https://dl.dropboxusercontent.com/u/6055409/pi4watering.jpg)
+
+
 <ul>
 Software:
 <li>

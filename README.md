@@ -3,8 +3,8 @@ pi4j-project. (using java to controll the GPIO-ports on rPi)
 
 Turns your raspberry-pi to a watering-system for flower-pots (indoor).
 
+<h2>Hardware:</h2>
 <ul>
-Hardware:
 <li>
   Raspberry pi
 </li>

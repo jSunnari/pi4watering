@@ -3,13 +3,19 @@
  */
 $(document).ready(function() {
 
+    $.ajax("/api/clouds", {
+        dataType: "text",
+        success: function(data, textStatus) {
+            $("#clouds").text(data);
+        }
+    });
+
     $("#button1").click(function () {
 
         $.ajax("/api/pump1On", {
             dataType: "text",
             success: function(data, textStatus) {
                 appendLatestRun();
-
             }
         });
     });

@@ -1,8 +1,10 @@
 package com.sunnari.pi4watering.controller;
 
 import com.pi4j.io.gpio.*;
+import com.sunnari.pi4watering.beans.Weather;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.SimpleDateFormat;
@@ -81,6 +83,12 @@ public class WateringController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    @RequestMapping(value = "/clouds", method = RequestMethod.GET)
+    public String getWeather() {
+        Weather weather = new Weather();
+        return weather.clouds();
     }
 
 

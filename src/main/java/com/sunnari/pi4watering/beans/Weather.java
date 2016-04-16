@@ -23,8 +23,8 @@ public class Weather {
         fio.getForecast("57.721107", "11.934564");
     }
 
-    public void clouds(){
-        clouds = daily.getDay(0).cloudCover();
+    public String clouds(){
+        return daily.getDay(0).cloudCover().toString();
     }
 
 }

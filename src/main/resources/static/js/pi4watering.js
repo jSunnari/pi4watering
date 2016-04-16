@@ -3,7 +3,21 @@
  */
 $(document).ready(function() {
 
+    $.ajax("/api/temperature", {
+        dataType: "text",
+        success: function(data, textStatus) {
+            $("#clouds").text("Temperatur: " + data);
+        }
+    });
+
     $.ajax("/api/clouds", {
+        dataType: "text",
+        success: function(data, textStatus) {
+            $("#clouds").text("Molnighet: " + data);
+        }
+    });
+
+    $.ajax("/api/summary", {
         dataType: "text",
         success: function(data, textStatus) {
             $("#clouds").text(data);
@@ -25,7 +39,6 @@ $(document).ready(function() {
         $.ajax("/api/pump1Off", {
             dataType: "text",
             success: function(data, textStatus) {
-                appendLatestRun();
 
             }
         });
@@ -37,7 +50,6 @@ $(document).ready(function() {
             dataType: "text",
             success: function(data, textStatus) {
                 appendLatestRun();
-
 
             }
         });

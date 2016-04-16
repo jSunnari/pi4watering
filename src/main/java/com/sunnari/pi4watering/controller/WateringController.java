@@ -85,10 +85,25 @@ public class WateringController {
         }
     }
 
+    /**
+     * WEATHER:
+     */
+    @RequestMapping(value = "/temperature", method = RequestMethod.GET)
+    public String getTemperature() {
+        Weather weather = new Weather();
+        return weather.temperature();
+    }
+
     @RequestMapping(value = "/clouds", method = RequestMethod.GET)
-    public String getWeather() {
+    public String getClouds() {
         Weather weather = new Weather();
         return weather.clouds();
+    }
+
+    @RequestMapping(value = "/summary", method = RequestMethod.GET)
+    public String getSummary() {
+        Weather weather = new Weather();
+        return weather.summary();
     }
 
 

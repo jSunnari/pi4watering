@@ -24,4 +24,12 @@ public class Weather {
         return daily.getDay(0).cloudCover().toString();
     }
 
+    public String temperature(){
+        return daily.getDay(0).cloudCover().toString();
+    }
+
+    public String summary(){
+        return daily.getDay(0).summary();
+    }
+
 }

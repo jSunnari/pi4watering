@@ -94,12 +94,12 @@ public class WateringController {
      * Checks clouds, if there is a small amount of clouds on the day that's not the "watering-day":
      * Water for 4 seconds 17.00.
      */
-    @Scheduled(cron = "0 0 19 2-30/2 * *")
+    @Scheduled(cron = "0 03 19 2-30/2 * *")
     public void getTodaysClouds(){
         Weather weather = new Weather();
         double clouds = weather.getCloud();
 
-        if (clouds <= 0.50){
+        if (clouds <= 0.52){
             powerOn4sec();
         }
     }

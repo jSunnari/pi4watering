@@ -6,7 +6,7 @@ $(document).ready(function() {
     $.ajax("/api/temperature", {
         dataType: "text",
         success: function(data, textStatus) {
-            $("#clouds").text("Temperatur: " + data);
+            $("#temperature").text("Temperatur: " + data);
         }
     });
 
@@ -20,7 +20,7 @@ $(document).ready(function() {
     $.ajax("/api/summary", {
         dataType: "text",
         success: function(data, textStatus) {
-            $("#clouds").text(data);
+            $("#summary").text(data);
         }
     });
 

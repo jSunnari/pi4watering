@@ -69,10 +69,12 @@ public class WateringController {
         return "All good!";
     }
 
-    //Run pump for 2sec:
-    @RequestMapping("/runFourSec")
-    @Scheduled(cron = "0 40 7 * * *")
-    public void powerOn2sec(){
+    /**
+     * Scheduled to run only odd days, this is the regular watering day.
+     * Will water for 4 seconds 7.40.
+     */
+    @Scheduled(cron = "0 40 7 1-31/2 * *")
+    public void powerOn4sec(){
         if (pump1 == null){
             pump1 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_04, "pump1", PinState.LOW);
         }
@@ -85,9 +87,23 @@ public class WateringController {
         }
     }
 
+    //************************ WEATHER ************************
+
     /**
-     * WEATHER:
+     * Scheduled to run only even days.
+     * Checks clouds, if there is a small amount of clouds on the day that's not the "watering-day":
+     * Water for 4 seconds 17.00.
      */
+    @Scheduled(cron = "0 0 19 2-30/2 * *")
+    public void getTodaysClouds(){
+        Weather weather = new Weather();
+        double clouds = weather.getCloud();
+
+        if (clouds <= 0.50){
+            powerOn4sec();
+        }
+    }
+
     @RequestMapping(value = "/temperature", method = RequestMethod.GET)
     public String getTemperature() {
         Weather weather = new Weather();
@@ -105,6 +121,5 @@ public class WateringController {
         Weather weather = new Weather();
         return weather.summary();
     }
-
 
 }

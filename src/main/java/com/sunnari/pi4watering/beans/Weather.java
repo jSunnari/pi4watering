@@ -32,4 +32,8 @@ public class Weather {
         return daily.getDay(0).summary();
     }
 
+    public double getCloud(){
+        return daily.getDay(0).cloudCover();
+    }
+
 }

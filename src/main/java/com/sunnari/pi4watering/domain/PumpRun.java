@@ -41,7 +41,7 @@ public class PumpRun {
         this.date = date;
     }
 
-    public String isScheduled() {
+    public String getScheduled() {
         String scheduledStr;
         if (scheduled){
             scheduledStr = "JA";

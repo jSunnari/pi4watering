@@ -24,6 +24,13 @@ $(document).ready(function() {
         }
     });
 
+    $.ajax("/api/uptime", {
+        dataType: "text",
+        success: function(data, textStatus) {
+            $("#uptime").text("Uptime: + " + data);
+        }
+    });
+
     $("#button1").click(function () {
 
         $.ajax("/api/pump1On", {

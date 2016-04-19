@@ -2,13 +2,16 @@ package com.sunnari.pi4watering.controller;
 
 import com.pi4j.io.gpio.*;
 import com.sunnari.pi4watering.beans.Weather;
+import com.sunnari.pi4watering.domain.PumpRun;
+import com.sunnari.pi4watering.domain.PumpRunRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.lang.management.ManagementFactory;
+import java.lang.management.RuntimeMXBean;
 
 /**
  * Created by Jonas on 2016-04-12.
@@ -22,12 +25,14 @@ public class WateringController {
     private static GpioPinDigitalOutput pump1;
     private static GpioPinDigitalOutput pump2;
 
-/*
-    @RequestMapping("/")
-    public String greeting(){
-        return "index.html";
+    @Autowired
+    private PumpRunRepository repository;
+
+    @RequestMapping(value="/pumpruns", method=RequestMethod.GET)
+    public String listPumpRuns(Model model) {
+        model.addAttribute("pumpruns", repository.findAll());
+        return "pumpruns/list";
     }
-*/
 
     //Start pump 1:
     @RequestMapping("/pump1On")
@@ -36,6 +41,7 @@ public class WateringController {
             pump1 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_04, "pump1", PinState.LOW);
         }
         pump1.low();
+        repository.save(new PumpRun(false));
         return "All good!";
     }
 
@@ -120,6 +126,12 @@ public class WateringController {
     public String getSummary() {
         Weather weather = new Weather();
         return weather.summary();
+    }
+
+    @RequestMapping(value = "/uptime", method = RequestMethod.GET)
+    public String getUptime(){
+        RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
+        return String.valueOf(rb.getUptime());
     }
 
 }

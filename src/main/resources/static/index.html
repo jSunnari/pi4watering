@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>pi4watering</title>
@@ -17,10 +17,31 @@
 <p id="temperature"></p>
 <p id="clouds"></p>
 <p id="summary"></p>
+<p id="uptime"></p>
+
 <h2>Senast vattnat:</h2>
 <ol id="latestRuns">
 </ol>
 
+
+<div layout:fragment="content">
+
+    <table class="table table-striped" id="pumpRun_list">
+        <thead>
+        <tr>
+            <th>Datum</th>
+            <th>Schemlagd</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="pumprun : ${pumpruns}">
+            <td class="date" data-th-text="${pumprun.date}"></td>
+            <td class="scheduled" data-th-text="${pumprun.scheduled}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

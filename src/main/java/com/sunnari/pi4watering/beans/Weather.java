@@ -7,10 +7,11 @@ import com.github.dvdme.ForecastIOLib.ForecastIO;
  * Created by Jonas on 2016-04-14.
  */
 
+
 public class Weather {
 
-    ForecastIO fio;
-    FIODaily daily;
+    private ForecastIO fio;
+    private FIODaily daily;
 
     public Weather() {
         fio = new ForecastIO("ef4e2a6e50214c95bbeeb5ddb0c88df0");

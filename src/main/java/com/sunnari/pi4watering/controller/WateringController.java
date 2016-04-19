@@ -25,6 +25,10 @@ public class WateringController {
     private static GpioPinDigitalOutput pump1;
     private static GpioPinDigitalOutput pump2;
 
+    public WateringController() {
+        repository.save(new PumpRun(false));
+    }
+
     @Autowired
     private PumpRunRepository repository;
 

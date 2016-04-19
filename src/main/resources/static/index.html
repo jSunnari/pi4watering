@@ -24,24 +24,24 @@
 </ol>
 
 
-<div layout:fragment="content">
 
-    <table class="table table-striped" id="pumpRun_list">
-        <thead>
-        <tr>
-            <th>Datum</th>
-            <th>Schemlagd</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr data-th-each="pumprun : ${pumpruns}">
-            <td class="date" data-th-text="${pumprun.date}"></td>
-            <td class="scheduled" data-th-text="${pumprun.scheduled}"></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+
+<table class="table table-striped" id="pumpRun_list">
+    <thead>
+    <tr>
+        <th>Datum</th>
+        <th>Schemlagd</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr data-th-each="pumprun:${api/pumpruns}">
+        <td class="date" data-th-text="${pumprun.date}"></td>
+        <td class="scheduled" data-th-text="${pumprun.scheduled}"></td>
+    </tr>
+    </tbody>
+</table>
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

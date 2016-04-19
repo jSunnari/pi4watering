@@ -15,9 +15,6 @@ public class HtmlMappingConfig extends WebMvcConfigurerAdapter {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/login").setViewName("login");
-
-
-
     }
 
 }

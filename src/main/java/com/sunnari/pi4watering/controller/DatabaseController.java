@@ -21,6 +21,6 @@ public class DatabaseController {
     @RequestMapping(value="", method= RequestMethod.GET)
     public String listPumpRuns(Model model) {
         model.addAttribute("pumpruns", repository.findAll());
-        return "index";
+        return "list";
     }
 }

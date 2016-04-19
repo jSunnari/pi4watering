@@ -25,8 +25,11 @@ public class Weather {
         return daily.getDay(0).cloudCover().toString();
     }
 
-    public String temperature(){
-        return daily.getDay(0).apparentTemperature().toString();
+    public String minTemperature(){
+        return daily.getDay(0).temperatureMin().toString();
+    }
+    public String maxTemperature(){
+        return daily.getDay(0).temperatureMax().toString();
     }
 
     public String summary(){

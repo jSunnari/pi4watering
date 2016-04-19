@@ -9,10 +9,10 @@ $(document).ready(function() {
         }
     });
 
-    $.ajax("/api/temperature", {
+    $.ajax("/api/minTemperature", {
         dataType: "text",
         success: function(data, textStatus) {
-            $("#temperature").text("Temperatur: " + data);
+            $("#temperature").text("Min temperatur: " + data);
         }
     });
 

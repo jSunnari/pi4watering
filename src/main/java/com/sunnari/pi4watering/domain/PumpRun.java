@@ -20,6 +20,9 @@ public class PumpRun {
     private Date date;
     private boolean scheduled;
 
+    public PumpRun() {
+    }
+
     public PumpRun(boolean scheduled) {
         this.date = new Date();
         this.scheduled = scheduled;

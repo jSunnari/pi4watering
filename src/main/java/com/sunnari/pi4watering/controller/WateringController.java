@@ -25,15 +25,9 @@ public class WateringController {
     private static GpioPinDigitalOutput pump1;
     private static GpioPinDigitalOutput pump2;
 
-
     @Autowired
     private PumpRunRepository repository;
 
-    @RequestMapping(value="/pumpruns", method=RequestMethod.GET)
-    public String listPumpRuns(Model model) {
-        model.addAttribute("pumpruns", repository.findAll());
-        return "pumpruns/list";
-    }
 
     //Start pump 1:
     @RequestMapping("/pump1On")

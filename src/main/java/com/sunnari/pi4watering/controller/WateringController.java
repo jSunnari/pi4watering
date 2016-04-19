@@ -29,8 +29,9 @@ public class WateringController {
     private PumpRunRepository repository;
 
     @RequestMapping(value="", method= RequestMethod.GET)
-    public void listPumpRuns(Model model) {
+    public String listPumpRuns(Model model) {
         model.addAttribute("pumpruns", repository.findAll());
+        return "index";
     }
 
     //Start pump 1:

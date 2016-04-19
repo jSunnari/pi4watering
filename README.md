@@ -3,6 +3,9 @@ pi4j-project. (using java to controll the GPIO-ports on rPi)
 
 Turns your raspberry-pi to a watering-system for flower-pots (indoor).
 
+Waters every odd day in the morning.
+Every even day around 3pm the program checks the weather, if there is less than 50% clouds, it will water that day too.
+
 <h2>Hardware:</h2>
 <ul>
 <li>
@@ -18,7 +21,13 @@ Turns your raspberry-pi to a watering-system for flower-pots (indoor).
   Water-pump 12v motor
 </li>
 <li>
+  Jumper cables
+</li>
+<li>
   Power-supply 12v
+</li>
+<li>
+  8mm hose
 </li>
 </ul>
 
@@ -35,6 +44,9 @@ Turns your raspberry-pi to a watering-system for flower-pots (indoor).
 <li>
 Spring-boot
 </li>
+<li>
+h2 database
+</li
 <li>
   HTML
 </li>

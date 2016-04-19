@@ -109,10 +109,10 @@ public class WateringController {
         }
     }
 
-    @RequestMapping(value = "/temperature", method = RequestMethod.GET)
-    public String getTemperature() {
+    @RequestMapping(value = "/minTemperature", method = RequestMethod.GET)
+    public String getMinTemperature() {
         Weather weather = new Weather();
-        return weather.temperature();
+        return weather.minTemperature();
     }
 
     @RequestMapping(value = "/clouds", method = RequestMethod.GET)

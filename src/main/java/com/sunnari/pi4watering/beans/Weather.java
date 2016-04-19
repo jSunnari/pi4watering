@@ -26,7 +26,7 @@ public class Weather {
     }
 
     public String temperature(){
-        return daily.getDay(0).cloudCover().toString();
+        return daily.getDay(0).temperature().toString();
     }
 
     public String summary(){

@@ -4,12 +4,14 @@
     <table id="posts_list">
         <thead>
         <tr>
-            <th>Date</th>
+            <th>Datum</th>
+            <th>Schemalagd</th>
         </tr>
         </thead>
         <tbody>
         <tr data-th-each="pumprun : ${pumpruns}">
             <td class="message" data-th-text="${pumprun.date}"></td>
+            <td class="message" data-th-text="${pumprun.scheduled}"></td>
         </tr>
         </tbody>
     </table>

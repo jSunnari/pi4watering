@@ -82,6 +82,7 @@ public class WateringController {
             pump1.low();
             Thread.sleep(4000);
             pump1.high();
+            repository.save(new PumpRun(true));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

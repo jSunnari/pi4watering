@@ -36,7 +36,6 @@ $(document).ready(function() {
         $.ajax("/api/pump1On", {
             dataType: "text",
             success: function(data, textStatus) {
-                appendLatestRun();
             }
         });
     });
@@ -56,22 +55,9 @@ $(document).ready(function() {
         $.ajax("/api/runFourSec", {
             dataType: "text",
             success: function(data, textStatus) {
-                appendLatestRun();
 
             }
         });
     });
-
-    function getCurrDateTime () {
-        return $.format.date(new Date(), "yyyy-MM-dd HH:mm:ss");
-    }
-
-    function appendLatestRun () {
-        $("#latestRuns").prepend("<li>" + getCurrDateTime() +"</li>");
-        if ($("#latestRuns").children().length > 7){
-            $("#latestRuns").children().last().remove();
-        }
-    }
-
 
 });

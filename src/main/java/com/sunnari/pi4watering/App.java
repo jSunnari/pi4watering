@@ -18,7 +18,7 @@ import java.util.TimeZone;
 
 @SpringBootApplication
 @EnableScheduling
-public class App implements CommandLineRunner{
+public class App{
 
     @Autowired
     private PumpRunRepository repository;
@@ -28,12 +28,6 @@ public class App implements CommandLineRunner{
         TimeZone.setDefault(tzone);
 
         SpringApplication.run(App.class, args);
-
     }
 
-    @Override
-    public void run(String... strings) throws Exception {
-        repository.save(new PumpRun(false));
-
-    }
 }

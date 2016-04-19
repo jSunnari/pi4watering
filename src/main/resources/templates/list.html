@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+
+    <table id="posts_list">
+        <thead>
+        <tr>
+            <th>Comments</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="pumprun : ${pumpruns}">
+            <td class="message" data-th-text="${pumprun.date}"></td>
+        </tr>
+        </tbody>
+    </table>
+</html>

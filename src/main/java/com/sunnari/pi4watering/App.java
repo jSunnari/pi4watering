@@ -1,6 +1,10 @@
 package com.sunnari.pi4watering;
 
+import com.sunnari.pi4watering.domain.PumpRun;
+import com.sunnari.pi4watering.domain.PumpRunRepository;
 import org.h2.tools.Server;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -14,21 +18,22 @@ import java.util.TimeZone;
 
 @SpringBootApplication
 @EnableScheduling
-public class App {
+public class App implements CommandLineRunner{
 
-    public static void main(String[] args) {
+    @Autowired
+    private PumpRunRepository repository;
+
+    public static void main(String[] args){
         TimeZone tzone = TimeZone.getTimeZone("Europe/Stockholm");
         TimeZone.setDefault(tzone);
 
-        try {
-            Server webServer = Server.createWebServer("-web","-webAllowOthers","-webPort","8082").start();
-            Server server = Server.createTcpServer("-tcp","-tcpAllowOthers","-tcpPort","9092").start();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
         SpringApplication.run(App.class, args);
+
+    }
+
+    @Override
+    public void run(String... strings) throws Exception {
+        repository.save(new PumpRun(false));
 
     }
 }

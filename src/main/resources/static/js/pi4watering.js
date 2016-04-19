@@ -3,6 +3,12 @@
  */
 $(document).ready(function() {
 
+    $.ajax("/api/", {
+        dataType: "text",
+        success: function(data, textStatus) {
+        }
+    });
+
     $.ajax("/api/temperature", {
         dataType: "text",
         success: function(data, textStatus) {

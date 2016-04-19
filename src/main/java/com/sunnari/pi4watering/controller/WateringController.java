@@ -28,6 +28,10 @@ public class WateringController {
     @Autowired
     private PumpRunRepository repository;
 
+    @RequestMapping(value="", method= RequestMethod.GET)
+    public void listPumpRuns(Model model) {
+        model.addAttribute("pumpruns", repository.findAll());
+    }
 
     //Start pump 1:
     @RequestMapping("/pump1On")

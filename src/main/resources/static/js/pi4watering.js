@@ -6,7 +6,7 @@ $(document).ready(function() {
     $.ajax("/api/weatherIcon", {
         dataType: "text",
         success: function(data, textStatus) {
-            var skycons = new Skycons({"color": "black"});
+            var skycons = new Skycons();
             skycons.add("weather-icon", data);
             skycons.play();
         }

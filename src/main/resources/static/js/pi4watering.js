@@ -6,7 +6,9 @@ $(document).ready(function() {
     $.ajax("/api/weatherIcon", {
         dataType: "text",
         success: function(data, textStatus) {
-            $("#weather-icon").attr('id', data);
+            var skycons = new Skycons({"color": "black"});
+            skycons.add("weather-icon", data);
+            skycons.play();
         }
     });
 

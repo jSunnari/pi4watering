@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.TimeZone;
 
 /**
  * Created by Jonas on 2016-04-12.
@@ -111,6 +114,12 @@ public class WateringController {
         return weather.minTemperature();
     }
 
+    @RequestMapping(value = "/maxTemperature", method = RequestMethod.GET)
+    public String getMaxTemperature() {
+        Weather weather = new Weather();
+        return weather.maxTemperature();
+    }
+
     @RequestMapping(value = "/clouds", method = RequestMethod.GET)
     public String getClouds() {
         Weather weather = new Weather();
@@ -123,10 +132,22 @@ public class WateringController {
         return weather.summary();
     }
 
+    @RequestMapping(value = "/weatherIcon", method = RequestMethod.GET)
+    public String getIcon() {
+        Weather weather = new Weather();
+        return weather.getIcon();
+    }
+
     @RequestMapping(value = "/uptime", method = RequestMethod.GET)
     public String getUptime(){
-        RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
-        return String.valueOf(rb.getUptime());
+        RuntimeMXBean mxBean = ManagementFactory.getRuntimeMXBean();
+
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+        long uptime = mxBean.getUptime();
+        String uptimeStr = uptime / (3600 * 1000 * 24) + ":" + dateFormat.format(uptime);
+
+        return uptimeStr;
     }
 
 }

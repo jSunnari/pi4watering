@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>pi4watering</title>
+    <link rel="stylesheet" type="text/css" href="/../css/style.css">
 </head>
 <body>
 
@@ -14,14 +15,19 @@
 <button type="button" id="button3">Run 4sec</button>
 
 <h2>Väder:</h2>
-<p id="temperature"></p>
+<canvas class="weather-icon" id="weather-icon" width="64" height="64"></canvas>
+<p id="minTemperature"></p>
+<p id="maxTemperature"></p>
 <p id="clouds"></p>
 <p id="summary"></p>
 <p id="uptime"></p>
 
-<a href="/../lists">Senast vattnat</a>
+<h2>Senast vattnat</h2>
+<div id="latestRun"></div>
+<a href="/../lists">Visa alla</a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/../js/skycons.js"></script>
 <script src="/../js/pi4watering.js"></script>
 
 </body>

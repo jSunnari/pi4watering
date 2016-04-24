@@ -28,6 +28,7 @@ public class Weather {
     public String minTemperature(){
         return daily.getDay(0).temperatureMin().toString();
     }
+
     public String maxTemperature(){
         return daily.getDay(0).temperatureMax().toString();
     }
@@ -39,5 +40,10 @@ public class Weather {
     public double getCloud(){
         return daily.getDay(0).cloudCover();
     }
+
+    public String getIcon() {
+        return daily.getDay(0).icon();
+    }
+
 
 }

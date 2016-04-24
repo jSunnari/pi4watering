@@ -3,10 +3,24 @@
  */
 $(document).ready(function() {
 
+    $.ajax("/api/weatherIcon", {
+        dataType: "text",
+        success: function(data, textStatus) {
+            $("#weather-icon").attr('id', data);
+        }
+    });
+
     $.ajax("/api/minTemperature", {
         dataType: "text",
         success: function(data, textStatus) {
-            $("#temperature").text("Min temperatur: " + data);
+            $("#minTemperature").text("Min temperatur: " + data);
+        }
+    });
+
+    $.ajax("/api/maxTemperature", {
+        dataType: "text",
+        success: function(data, textStatus) {
+            $("#maxTemperature").text("Max temperatur: " + data);
         }
     });
 

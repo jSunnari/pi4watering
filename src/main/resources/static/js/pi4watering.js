@@ -4,15 +4,22 @@
 
 $(document).ready(function() {
 
+    var weather;
+
     $.ajax("/api/weatherIcon", {
         dataType: "text",
         success: function(data, textStatus) {
             var skycons = new Skycons();
+            weather = data;
             skycons.add("weather-icon", data);
             console.log(data);
             skycons.play();
         }
     });
+
+    var skycons = new Skycons();
+    skycons.add("weather-icon", weather);
+    skycons.play();
 
     $.ajax("/api/minTemperature", {
         dataType: "text",

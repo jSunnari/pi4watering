@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @Controller
-@RequestMapping("/lists")
+@RequestMapping("/pumpruns")
 public class DatabaseController {
 
     @Autowired

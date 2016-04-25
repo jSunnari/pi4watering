@@ -49,7 +49,7 @@ $(document).ready(function() {
         }
     });
 
-    $("#button1").click(function () {
+    $("#pump1On").click(function () {
 
         $.ajax("/api/pump1On", {
             dataType: "text",
@@ -58,7 +58,7 @@ $(document).ready(function() {
         });
     });
 
-    $("#button2").click(function () {
+    $("#pump1Off").click(function () {
 
         $.ajax("/api/pump1Off", {
             dataType: "text",
@@ -68,9 +68,19 @@ $(document).ready(function() {
         });
     });
 
-    $("#button3").click(function () {
+    $("#pump2On").click(function () {
 
-        $.ajax("/api/runFourSec", {
+        $.ajax("/api/pump2On", {
+            dataType: "text",
+            success: function(data, textStatus) {
+
+            }
+        });
+    });
+
+    $("#pump2Off").click(function () {
+
+        $.ajax("/api/pump2Off", {
             dataType: "text",
             success: function(data, textStatus) {
 

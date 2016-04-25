@@ -18,12 +18,14 @@ public class PumpRun {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private Date date;
+    private String pump;
     private boolean scheduled;
 
     public PumpRun() {
     }
 
-    public PumpRun(boolean scheduled) {
+    public PumpRun(boolean scheduled, String pump) {
+        this.pump = pump;
         this.date = new Date();
         this.scheduled = scheduled;
     }
@@ -39,6 +41,14 @@ public class PumpRun {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getPump() {
+        return pump;
+    }
+
+    public void setPump(String pump) {
+        this.pump = pump;
     }
 
     public String getScheduled() {

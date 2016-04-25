@@ -1,6 +1,7 @@
 /**
  * Created by Jonas on 2016-04-12.
  */
+
 $(document).ready(function() {
 
     $.ajax("/api/weatherIcon", {
@@ -8,6 +9,7 @@ $(document).ready(function() {
         success: function(data, textStatus) {
             var skycons = new Skycons();
             skycons.add("weather-icon", data);
+            console.log(data);
             skycons.play();
         }
     });

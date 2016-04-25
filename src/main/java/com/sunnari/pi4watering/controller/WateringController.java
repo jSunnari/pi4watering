@@ -6,10 +6,10 @@ import com.sunnari.pi4watering.domain.PumpRun;
 import com.sunnari.pi4watering.domain.PumpRunRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 import java.text.DateFormat;
@@ -38,7 +38,7 @@ public class WateringController {
             pump1 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_04, "pump1", PinState.LOW);
         }
         pump1.low();
-        repository.save(new PumpRun(false));
+        repository.save(new PumpRun(false, "Pump1"));
         return "All good!";
     }
 
@@ -59,6 +59,7 @@ public class WateringController {
             pump2 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_05, "pump2", PinState.LOW);
         }
         pump2.low();
+        repository.save(new PumpRun(false, "Pump2"));
         return "All good!";
     }
 
@@ -77,7 +78,7 @@ public class WateringController {
      * Will water for 4 seconds 7.40.
      */
     @Scheduled(cron = "0 40 7 1-31/2 * *")
-    public void powerOn4sec(){
+    public void pump1Cron(){
         if (pump1 == null){
             pump1 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_04, "pump1", PinState.LOW);
         }
@@ -85,7 +86,26 @@ public class WateringController {
             pump1.low();
             Thread.sleep(4000);
             pump1.high();
-            repository.save(new PumpRun(true));
+            repository.save(new PumpRun(true, "Pump1"));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Scheduled to run only odd days, this is the regular watering day.
+     * Will water for 4 seconds 7.40.
+     */
+    @Scheduled(cron = "0 40 7 1-31/2 * *")
+    public void pump2Cron(){
+        if (pump2 == null){
+            pump2 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_05, "pump2", PinState.LOW);
+        }
+        try {
+            pump2.low();
+            Thread.sleep(4000);
+            pump2.high();
+            repository.save(new PumpRun(true, "Pump2"));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -104,7 +124,8 @@ public class WateringController {
         double clouds = weather.getCloud();
 
         if (clouds <= 0.50){
-            powerOn4sec();
+            pump1Cron();
+            pump2Cron();
         }
     }
 

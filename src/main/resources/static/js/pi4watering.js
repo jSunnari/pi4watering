@@ -17,10 +17,6 @@ $(document).ready(function() {
         }
     });
 
-    var skycons = new Skycons();
-    skycons.add("weather-icon", weather);
-    skycons.play();
-
     $.ajax("/api/minTemperature", {
         dataType: "text",
         success: function(data, textStatus) {

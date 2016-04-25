@@ -29,6 +29,6 @@ public class DatabaseController {
     @RequestMapping(value = "/{id}/delete", method = RequestMethod.GET)
     public ModelAndView delete(@PathVariable long id) {
         repository.delete(id);
-        return new ModelAndView("redirect:/lists");
+        return new ModelAndView("redirect:/pumpruns");
     }
 }

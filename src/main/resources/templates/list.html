@@ -13,6 +13,11 @@
             <td class="message" data-th-text="${pumprun.date}"></td>
             <td class="message" data-th-text="${pumprun.scheduled}"></td>
             <td class="message" data-th-text="${pumprun.pump}"></td>
+            <td>
+                <a th:href="@{'/pumpruns/{id}/delete'(id=${pumprun.id})}" class="delete" th:attr="name=${pumprun.message}">
+                    <p>X</p>
+                </a>
+            </td>
         </tr>
         </tbody>
     </table>

@@ -84,7 +84,7 @@ public class WateringController {
         }
         try {
             pump1.low();
-            Thread.sleep(4000);
+            Thread.sleep(5000);
             pump1.high();
             repository.save(new PumpRun(true, "Pump1"));
         } catch (InterruptedException e) {
@@ -96,7 +96,7 @@ public class WateringController {
      * Scheduled to run only odd days, this is the regular watering day.
      * Will water for 4 seconds 7.40.
      */
-    @Scheduled(cron = "0 40 7 1-31/2 * *")
+    //@Scheduled(cron = "0 40 7 1-31/2 * *")
     public void pump2Cron(){
         if (pump2 == null){
             pump2 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_05, "pump2", PinState.LOW);
@@ -125,7 +125,7 @@ public class WateringController {
 
         if (clouds <= 0.50){
             pump1Cron();
-            pump2Cron();
+            //pump2Cron();
         }
     }
 

@@ -12,6 +12,12 @@ body {
     width: 60px;
 }
 
+.login-container {
+    width: 300px;
+}
+
+
+
 /*
 * LOGIN
 */
@@ -52,7 +58,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .profile-img-card {
-    width: 180px;
+    width: 100px;
     height: 100px;
     margin: 0 auto 10px;
     display: block;
@@ -118,7 +124,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .btn.btn-signin {
-    background-color: #02C1EE;
     /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
     padding: 0px;
     font-weight: 700;
@@ -154,3 +159,7 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 10px;
     margin-bottom: 0;
 }
+
+/*
+* END OF LOGIN
+*/

@@ -1,22 +1,49 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>pi4watering - login</title>
+    <meta charset="UTF-8"/>
+    <title>pi4Watering - login</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/../css/style.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
+<!--
+<div class="container">
+    <div class="login-container">
+    <div th:if="${param.error}">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+    <form class="form-signin" th:action="@{/login}" method="post">
+        <h2 class="form-signin-heading">Login</h2>
+        <fieldset>
+
+                <label for="username">Username:</label>
+                <input id="username" type="text" name="username" placeholder="Användarnamn"/>
+
+                <label for="password">Password:</label>
+                <input id="password" type="password" name="password" placeholder="Lösenord"/>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </fieldset>
+    </form>
+</div>
+    </div>
+    -->
 
 <div class="container">
     <div class="card card-container">
-        <h2>pi4watering</h2>
+        <img id="profile-img" class="profile-img-card" src="../static/img/raspberrypi.png"/>
         <p id="profile-name" class="profile-name-card"></p>
 
-        <form th:action="@{/login}" method="post">
-            <span id="reauth-email" class="reauth-email"></span>
-            <input name="username" type="text" class="form-control" placeholder="Användarnamn" required="" autofocus=""/>
-            <input name="password" type="password" class="form-control" placeholder="Lösenord" required=""/>
-            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Logga in</button>
+        <form class="form-signin" th:action="@{/login}" method="post">
+            <input id="username" type="text" class="form-control" placeholder="Användarnamn" required="" autofocus="" />
+            <input id="password" type="password" class="form-control" placeholder="Lösenord" required="" />
 
             <div th:if="${param.error}">
                 Invalid username and password.
@@ -24,6 +51,8 @@
             <div th:if="${param.logout}">
                 You have been logged out.
             </div>
+
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Logga in</button>
 
         </form><!-- /form -->
     </div><!-- /card-container -->
@@ -34,18 +63,5 @@
 
 
 
-<!--
-<div th:if="${param.error}">
-    Invalid username and password.
-</div>
-<div th:if="${param.logout}">
-    You have been logged out.
-</div>
-<form th:action="@{/login}" method="post">
-    <fieldset>
-    <div><label>Username:<input type="text" name="username"/> </label></div>
-    <div><label>Password:<input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
-    </fieldset>
-</form>
--->
+
+

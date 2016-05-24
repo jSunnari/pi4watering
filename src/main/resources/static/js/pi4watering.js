@@ -47,7 +47,7 @@ $(document).ready(function() {
     $.ajax("/api/uptime", {
         dataType: "text",
         success: function(data, textStatus) {
-            $("#uptime").text("Uptime: + " + data);
+            $("#uptime").text("Uptime:" + data);
         }
     });
 

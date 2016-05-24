@@ -3,7 +3,6 @@
  */
 
 $(document).ready(function() {
-    $('#pumpruns_list').dataTable();
 
     var weather;
 
@@ -92,5 +91,7 @@ $(document).ready(function() {
             }
         });
     });
+
+    $('#pumpruns_list').dataTable();
 
 });

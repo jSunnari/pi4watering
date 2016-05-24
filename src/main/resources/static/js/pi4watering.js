@@ -91,7 +91,7 @@ $(document).ready(function() {
 
     function setWeatherIcon(weather){
         var skycons = new Skycons();
-        skycons.add("clear-day", weather);
+        skycons.add("weather-icon", weather);
         console.log(skycons);
         console.log(weather);
         skycons.play();

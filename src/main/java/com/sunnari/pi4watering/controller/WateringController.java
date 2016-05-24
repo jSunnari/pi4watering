@@ -168,7 +168,7 @@ public class WateringController {
         long uptime = mxBean.getUptime();
         String uptimeStr = uptime / (3600 * 1000 * 24) + "d " + dateFormat.format(uptime);
 
-        return uptimeStr;
+        return uptimeStr.substring(1);
     }
 
 }

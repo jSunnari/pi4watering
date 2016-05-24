@@ -163,10 +163,10 @@ public class WateringController {
     public String getUptime(){
         RuntimeMXBean mxBean = ManagementFactory.getRuntimeMXBean();
 
-        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("HH'h' mm'm' ss's'");
         dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
         long uptime = mxBean.getUptime();
-        String uptimeStr = uptime / (3600 * 1000 * 24) + ":" + dateFormat.format(uptime);
+        String uptimeStr = uptime / (3600 * 1000 * 24) + "d " + dateFormat.format(uptime);
 
         return uptimeStr;
     }

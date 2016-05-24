@@ -60,6 +60,8 @@
         <p id="profile-name" class="profile-name-card"></p>
 
         <form class="form-signin" th:action="@{/login}" method="post">
+
+            <fieldset>
             <input id="username" type="text" class="form-control" placeholder="Användarnamn" required="" autofocus="" />
             <input id="password" type="password" class="form-control" placeholder="Lösenord" required="" />
 
@@ -71,6 +73,8 @@
             </div>
 
             <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Logga in</button>
+            </fieldset>
+
 
         </form>
     </div>

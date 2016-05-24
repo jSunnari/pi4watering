@@ -88,7 +88,7 @@ $(document).ready(function() {
         });
     });
 
-    $('#pumpruns_list').dataTable();
+    $('#pumpruns_list').DataTable();
 
     skycons.add("weather-icon", data);
     console.log(data);

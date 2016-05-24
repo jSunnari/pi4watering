@@ -4,6 +4,23 @@
     <title>pi4watering - login</title>
 </head>
 <body>
+<div th:if="${param.error}">
+    Invalid username and password.
+</div>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+<form th:action="@{/login}" method="post">
+    <fieldset>
+    <div><label>Username:<input type="text" name="username"/> </label></div>
+    <div><label>Password:<input type="password" name="password"/> </label></div>
+    <div><input type="submit" value="Sign In"/></div>
+    </fieldset>
+</form>
+</body>
+</html>
+
+<!--
 <div class="container">
     <div class="card card-container">
         <h2>pi4watering</h2>
@@ -21,12 +38,11 @@
             <div th:if="${param.logout}">
                 You have been logged out.
             </div>
-
-        </form><!-- /form -->
-    </div><!-- /card-container -->
-</div><!-- /container -->
-</body>
-</html>
-
+            -->
+<!--
+        </form><!-- /form
+    </div><!-- /card-container
+</div><!-- /container
+-->
 
 

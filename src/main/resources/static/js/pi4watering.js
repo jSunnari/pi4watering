@@ -19,21 +19,21 @@ $(document).ready(function() {
     $.ajax("/api/minTemperature", {
         dataType: "text",
         success: function(data, textStatus) {
-            $("#minTemperature").text("Min temperatur: " + data);
+            $("#minTemperature").text("Min temperatur: " + data + "°C");
         }
     });
 
     $.ajax("/api/maxTemperature", {
         dataType: "text",
         success: function(data, textStatus) {
-            $("#maxTemperature").text("Max temperatur: " + data);
+            $("#maxTemperature").text("Max temperatur: " + data + "°C");
         }
     });
 
     $.ajax("/api/clouds", {
         dataType: "text",
         success: function(data, textStatus) {
-            $("#clouds").text("Molnighet: " + data);
+            $("#clouds").text("Molnighet: " + data + "%");
         }
     });
 
@@ -90,12 +90,5 @@ $(document).ready(function() {
         });
     });
 
-    function setWeatherIcon(weather){
-        var skycons = new Skycons();
-        skycons.add("weather-icon", weather);
-        console.log(skycons);
-        console.log(weather);
-        skycons.play();
-    }
 
 });

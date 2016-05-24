@@ -5,13 +5,14 @@
 $(document).ready(function() {
 
     var weatherIcon = null;
+    setWeatherIcon("rain");
 
 
     $.ajax("/api/weatherIcon", {
         dataType: "text",
         success: function(data, textStatus) {
             weatherIcon = data;
-            setWeatherIcon(weatherIcon);
+            //setWeatherIcon(weatherIcon);
         }
     });
 
@@ -96,7 +97,5 @@ $(document).ready(function() {
         console.log(weather);
         skycons.play();
     }
-
-    $('#pumpruns_list').dataTable();
 
 });

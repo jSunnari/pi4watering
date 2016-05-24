@@ -3,6 +3,7 @@
  */
 
 $(document).ready(function() {
+    $('#pumpruns_list').dataTable();
 
     var weather;
 
@@ -10,6 +11,7 @@ $(document).ready(function() {
         dataType: "text",
         success: function(data, textStatus) {
             var skycons = new Skycons();
+            console.log(skycons);
             weather = data;
             skycons.add("weather-icon", data);
             console.log(data);

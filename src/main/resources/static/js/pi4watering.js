@@ -5,14 +5,14 @@
 $(document).ready(function() {
 
     var weatherIcon = null;
-    setWeatherIcon("rain");
+    setWeatherIcon("clear-day");
 
 
     $.ajax("/api/weatherIcon", {
         dataType: "text",
         success: function(data, textStatus) {
             weatherIcon = data;
-            //setWeatherIcon(weatherIcon);
+            setWeatherIcon(weatherIcon);
         }
     });
 

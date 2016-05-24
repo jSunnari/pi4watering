@@ -11,6 +11,7 @@ $(document).ready(function() {
         dataType: "text",
         success: function(data, textStatus) {
             weather = data;
+            addWeatherIcon();
         }
     });
 
@@ -88,10 +89,14 @@ $(document).ready(function() {
         });
     });
 
-    $('#pumpruns_list').DataTable();
+    function addWeatherIcon(){
+        skycons.add("weather-icon", weather);
+        console.log(weather);
+        skycons.play();
+    }
 
-    skycons.add("weather-icon", weather);
-    console.log(weather);
-    skycons.play();
+    $('#pumpruns_list').dataTable();
+
+
 
 });

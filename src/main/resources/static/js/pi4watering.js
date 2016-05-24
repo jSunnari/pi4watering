@@ -90,8 +90,8 @@ $(document).ready(function() {
 
     $('#pumpruns_list').DataTable();
 
-    skycons.add("weather-icon", data);
-    console.log(data);
+    skycons.add("weather-icon", weather);
+    console.log(weather);
     skycons.play();
 
 });

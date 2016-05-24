@@ -4,19 +4,14 @@
 
 $(document).ready(function() {
 
-    var skycons = new Skycons();
-    skycons.add("weather-icon", "rain");
-    skycons.play();
+    var weatherIcon = null;
+
 
     $.ajax("/api/weatherIcon", {
         dataType: "text",
         success: function(data, textStatus) {
-            var skycons = new Skycons();
-            console.log(skycons);
-            weather = data;
-            skycons.add("weather-icon", data);
-            console.log(data);
-            skycons.play();
+            weatherIcon = data;
+            setWeatherIcon(weatherIcon);
         }
     });
 
@@ -93,6 +88,14 @@ $(document).ready(function() {
             }
         });
     });
+
+    function setWeatherIcon(weather){
+        var skycons = new Skycons();
+        skycons.add("clear-day", weather);
+        console.log(skycons);
+        console.log(weather);
+        skycons.play();
+    }
 
     $('#pumpruns_list').dataTable();
 

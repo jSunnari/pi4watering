@@ -27,18 +27,13 @@
     </form>
 
 -->
-<!--
+
 <div class="container">
     <div class="login-container">
-    <div th:if="${param.error}">
-        Invalid username and password.
-    </div>
-    <div th:if="${param.logout}">
-        You have been logged out.
-    </div>
-    <form class="form-signin" th:action="@{/login}" method="post">
-        <h2 class="form-signin-heading">Login</h2>
-        <fieldset>
+
+        <form class="form-signin" th:action="@{/login}" method="post">
+            <h2 class="form-signin-heading">Login</h2>
+            <fieldset>
 
                 <label for="username">Username:</label>
                 <input id="username" type="text" name="username" placeholder="Användarnamn"/>
@@ -46,14 +41,22 @@
                 <label for="password">Password:</label>
                 <input id="password" type="password" name="password" placeholder="Lösenord"/>
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        </fieldset>
-    </form>
-</div>
+                <div th:if="${param.error}">
+                    Invalid username and password.
+                </div>
+                <div th:if="${param.logout}">
+                    You have been logged out.
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+            </fieldset>
+        </form>
     </div>
--->
+</div>
 
 
+<!--
 <div class="container">
     <div class="card card-container">
         <img id="profile-img" class="profile-img-card" src="../static/img/raspberrypi.png"/>
@@ -79,7 +82,7 @@
         </form>
     </div>
 </div>
-
+-->
 </body>
 </html>
 

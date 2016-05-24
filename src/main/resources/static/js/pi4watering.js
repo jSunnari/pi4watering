@@ -4,7 +4,9 @@
 
 $(document).ready(function() {
 
-    var weather;
+    var skycons = new Skycons();
+    skycons.add("weather-icon", "rain");
+    skycons.play();
 
     $.ajax("/api/weatherIcon", {
         dataType: "text",
@@ -92,6 +94,6 @@ $(document).ready(function() {
         });
     });
 
-    $('#pumpruns_list').dataTable();
+    $('#pumpruns_list').DataTable();
 
 });

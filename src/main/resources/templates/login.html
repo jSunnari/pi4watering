@@ -4,6 +4,36 @@
     <title>pi4watering - login</title>
 </head>
 <body>
+
+<div class="container">
+    <div class="card card-container">
+        <h2>pi4watering</h2>
+        <p id="profile-name" class="profile-name-card"></p>
+
+        <form th:action="@{/login}" method="post">
+            <span id="reauth-email" class="reauth-email"></span>
+            <input name="username" type="text" class="form-control" placeholder="Användarnamn" required="" autofocus/>
+            <input name="password" type="password" class="form-control" placeholder="Lösenord" required=""/>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Logga in</button>
+
+            <div th:if="${param.error}">
+                Invalid username and password.
+            </div>
+            <div th:if="${param.logout}">
+                You have been logged out.
+            </div>
+
+        </form><!-- /form -->
+    </div><!-- /card-container -->
+</div><!-- /container -->
+
+</body>
+</html>
+
+
+
+
+<!--
 <div th:if="${param.error}">
     Invalid username and password.
 </div>
@@ -17,32 +47,4 @@
     <div><input type="submit" value="Sign In"/></div>
     </fieldset>
 </form>
-</body>
-</html>
-
-<!--
-<div class="container">
-    <div class="card card-container">
-        <h2>pi4watering</h2>
-        <p id="profile-name" class="profile-name-card"></p>
-
-        <form th:action="@{/login}" method="post">
-            <span id="reauth-email" class="reauth-email"></span>
-            <input name="username" type="text" class="form-control" placeholder="Användarnamn" required autofocus>
-            <input name="password" type="password" class="form-control" placeholder="Lösenord" required>
-            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Logga in</button>
-
-            <div th:if="${param.error}">
-                Invalid username and password.
-            </div>
-            <div th:if="${param.logout}">
-                You have been logged out.
-            </div>
-            -->
-<!--
-        </form><!-- /form
-    </div><!-- /card-container
-</div><!-- /container
 -->
-
-

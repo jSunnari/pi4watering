@@ -5,18 +5,12 @@
 $(document).ready(function() {
 
     var skycons = new Skycons();
-    skycons.add("weather-icon", "rain");
-    skycons.play();
+    var weather = null;
 
     $.ajax("/api/weatherIcon", {
         dataType: "text",
         success: function(data, textStatus) {
-            var skycons = new Skycons();
-            console.log(skycons);
             weather = data;
-            skycons.add("weather-icon", data);
-            console.log(data);
-            skycons.play();
         }
     });
 
@@ -94,6 +88,10 @@ $(document).ready(function() {
         });
     });
 
-    $('#pumpruns_list').DataTable();
+    $('#pumpruns_list').dataTable();
+
+    skycons.add("weather-icon", data);
+    console.log(data);
+    skycons.play();
 
 });

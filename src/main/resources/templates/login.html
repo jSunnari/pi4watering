@@ -4,6 +4,8 @@
     <meta charset="UTF-8"/>
     <title>pi4Watering - login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -29,17 +31,17 @@
 -->
 
 <div class="container">
-    <div class="login-container">
+    <div class="wrapper">
 
         <form class="form-signin" th:action="@{/login}" method="post">
             <h2 class="form-signin-heading">Login</h2>
             <fieldset>
 
-                <label for="username">Username:</label>
-                <input id="username" type="text" name="username" placeholder="Användarnamn"/>
 
-                <label for="password">Password:</label>
-                <input id="password" type="password" name="password" placeholder="Lösenord"/>
+                <input id="username" class="form-control" type="text" name="username" placeholder="Användarnamn"/>
+
+
+                <input id="password" class="form-control" type="password" name="password" placeholder="Lösenord"/>
 
                 <div th:if="${param.error}">
                     Invalid username and password.

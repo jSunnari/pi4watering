@@ -14,6 +14,8 @@ import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.TimeZone;
 
 /**
@@ -27,6 +29,7 @@ public class WateringController {
     private static GpioController gpioController = GpioFactory.getInstance();
     private static GpioPinDigitalOutput pump1;
     private static GpioPinDigitalOutput pump2;
+    private int badWeatherCounter = 0;
 
     @Autowired
     private PumpRunRepository repository;
@@ -75,7 +78,7 @@ public class WateringController {
 
     /**
      * Scheduled to run only odd days, this is the regular watering day.
-     * Will water for 4 seconds 7.40.
+     * Will water for 11 seconds 7.40.
      */
     @Scheduled(cron = "0 40 7 1-31/2 * *")
     public void pump1Cron(){
@@ -86,28 +89,33 @@ public class WateringController {
             pump1.low();
             Thread.sleep(11000);
             pump1.high();
-            repository.save(new PumpRun(true, "Pump1"));
+            repository.save(new PumpRun(true, "Vardagsrummet"));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * Scheduled to run only odd days, this is the regular watering day.
-     * Will water for 4 seconds 7.40.
+     * Scheduled to run every day, this is the regular watering day.
+     * Will water for 10 seconds 7.40.
      */
-    //@Scheduled(cron = "0 40 7 1-31/2 * *")
+    @Scheduled(cron = "0 40 7 * * *")
     public void pump2Cron(){
-        if (pump2 == null){
-            pump2 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_05, "pump2", PinState.LOW);
+        if (badWeatherCounter <= 3) {
+            if (pump2 == null) {
+                pump2 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_05, "pump2", PinState.LOW);
+            }
+            try {
+                pump2.low();
+                Thread.sleep(10000);
+                pump2.high();
+                repository.save(new PumpRun(true, "Balkongen"));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-        try {
-            pump2.low();
-            Thread.sleep(4000);
-            pump2.high();
-            repository.save(new PumpRun(true, "Pump2"));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        else{
+            badWeatherCounter = 0;
         }
     }
 
@@ -116,17 +124,24 @@ public class WateringController {
     /**
      * Scheduled to run only even days.
      * Checks clouds, if there is a small amount of clouds on the day that's not the "watering-day":
-     * Water for 4 seconds 17.00.
+     * Waters 15.00.
      */
-    @Scheduled(cron = "0 00 17 2-30/2 * *")
+    @Scheduled(cron = "0 00 15 2-30/2 * *")
     public void getTodaysClouds(){
         Weather weather = new Weather();
         double clouds = weather.getCloud();
 
+        //If the weather is cloudy, increase counter:
+        if (clouds >= 0.60){
+            badWeatherCounter++;
+        }
+
         if (clouds <= 0.50){
             pump1Cron();
-            //pump2Cron();
+            pump2Cron();
+            badWeatherCounter = 0;
         }
+
     }
 
     @RequestMapping(value = "/minTemperature", method = RequestMethod.GET)

@@ -57,3 +57,15 @@ h2 database
 
 Web interface:
 ![screenshot interface](https://dl.dropboxusercontent.com/u/6055409/pi4watering%20screenshot1.png)
+
+Testing hardware:
+![pi4watering](https://dl.dropboxusercontent.com/u/6055409/pi4watering1.JPG)
+
+Hardware running:
+![pi4watering](https://dl.dropboxusercontent.com/u/6055409/pi4watering2.JPG)
+
+Built hose holder: 
+![pi4watering](https://dl.dropboxusercontent.com/u/6055409/pi4watering3.JPG)
+
+On the balcony: 
+![pi4watering](https://dl.dropboxusercontent.com/u/6055409/pi4watering4.JPG)

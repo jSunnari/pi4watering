@@ -55,5 +55,5 @@ h2 database
 </li>
 </ul>
 
-<h3>Web interface</h3>
+<p>Web interface</p>
 ![screenshot interface](https://dl.dropboxusercontent.com/u/6055409/pi4watering%20screenshot1.png)

@@ -31,7 +31,7 @@ Every even day around 3pm the program checks the weather, if there is less than 
 </li>
 </ul>
 
-![alt tag](https://dl.dropboxusercontent.com/u/6055409/pi4watering.jpg)
+![wiring](https://dl.dropboxusercontent.com/u/6055409/pi4watering.jpg)
 
 <h2>Software:</h2>
 <ul>
@@ -54,3 +54,5 @@ h2 database
   JQuery
 </li>
 </ul>
+
+![screenshot interface](https://dl.dropboxusercontent.com/u/6055409/pi4watering%20screenshot1.png)

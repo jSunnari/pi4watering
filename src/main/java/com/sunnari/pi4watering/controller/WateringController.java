@@ -107,7 +107,7 @@ public class WateringController {
             }
             try {
                 pump2.low();
-                Thread.sleep(10000);
+                Thread.sleep(14000);
                 pump2.high();
                 repository.save(new PumpRun(true, "Balkongen"));
             } catch (InterruptedException e) {

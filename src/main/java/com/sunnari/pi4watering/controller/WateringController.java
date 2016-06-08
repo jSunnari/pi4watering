@@ -101,6 +101,7 @@ public class WateringController {
      */
     @Scheduled(cron = "0 40 7 * * *")
     public void pump2Cron(){
+        //If it has been cloudy in three days, don't water.
         if (badWeatherCounter <= 3) {
             if (pump2 == null) {
                 pump2 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_05, "pump2", PinState.LOW);
@@ -123,11 +124,27 @@ public class WateringController {
 
     /**
      * Scheduled to run only even days.
-     * Checks clouds, if there is a small amount of clouds on the day that's not the "watering-day":
+     * Checks clouds, if there is under 50% of clouds, it will water pump1.
      * Waters 15.00.
      */
     @Scheduled(cron = "0 00 15 2-30/2 * *")
-    public void getTodaysClouds(){
+    public void pump1CheckWeather(){
+        Weather weather = new Weather();
+        double clouds = weather.getCloud();
+
+        if (clouds <= 0.50){
+            pump1Cron();
+        }
+    }
+
+    /**
+     * Scheduled to run every day.
+     * Checks clouds, if there is under 50% of clouds, it will water pump2.
+     * if it's cloudy, increase the counter.
+     * Waters 15.00.
+     */
+    @Scheduled(cron = "0 00 15 * * *")
+    public void pump2CheckWeather(){
         Weather weather = new Weather();
         double clouds = weather.getCloud();
 
@@ -137,7 +154,6 @@ public class WateringController {
         }
 
         if (clouds <= 0.50){
-            pump1Cron();
             pump2Cron();
             badWeatherCounter = 0;
         }

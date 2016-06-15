@@ -3,9 +3,12 @@
  */
 
 $(document).ready(function() {
-    $('#pumpruns_list').DataTable( {
-        "order": [[ 0, "desc" ]]
-    } );
+
+    $('#pumprun_button').click(function () {
+        $('#pumpruns_list').DataTable( {
+            "order": [[ 0, "desc" ]]
+        } );
+    });
 
     $.ajax("/api/weatherIcon", {
         dataType: "text",

@@ -10,8 +10,6 @@ $(document).ready(function() {
             var weatherIcon = data.substr(1,data.length-2);
             var skycons = new Skycons();
             skycons.add("weather-icon", weatherIcon);
-            console.log(skycons);
-            console.log(weatherIcon);
             skycons.play();
         }
     });

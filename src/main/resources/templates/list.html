@@ -1,4 +1,6 @@
-<html layout:decorator="index" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml">
+<html layout:decorator="index"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
 
 <div layout:fragment="content">
 
@@ -26,5 +28,15 @@
         </tr>
         </tbody>
     </table>
+
+    <th:block layout:fragment="script">
+        <script>
+            $(document).ready(function() {
+                $('#pumpruns_list').DataTable({
+                    "order": [[0, "desc"]]
+                });
+            });
+        </script>
+    </th:block>
 </div>
 </html>

@@ -30,6 +30,9 @@
     </table>
 
     <th:block layout:fragment="script">
+        <script th:src="@{/page.js}"></script>
+
+
         <script>
                 $('#pumpruns_list').DataTable({
                     "order": [[0, "desc"]]

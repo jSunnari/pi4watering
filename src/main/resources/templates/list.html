@@ -37,7 +37,18 @@
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script>
         $('#pumpruns_list').DataTable({
-            "order": [[0, "desc"]]
+            "order": [[0, "desc"]],
+            "searching": false,
+            "language": {
+                "lengthMenu": "Visa _MENU_ träffar per sida",
+                "info": "Visar sida _PAGE_ av _PAGES_",
+                "paginate": {
+                    "first":      "Första",
+                    "last":       "Sista",
+                    "next":       "Nästa",
+                    "previous":   "Föregående"
+                }
+            }
         });
     </script>
 </div>

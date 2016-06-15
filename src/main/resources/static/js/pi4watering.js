@@ -4,12 +4,6 @@
 
 $(document).ready(function() {
 
-    $('#pumprun_button').click(function () {
-        $('#pumpruns_list').DataTable( {
-            "order": [[ 0, "desc" ]]
-        } );
-    });
-
     $.ajax("/api/weatherIcon", {
         dataType: "text",
         success: function(data, textStatus) {

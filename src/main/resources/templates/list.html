@@ -29,15 +29,12 @@
         </tbody>
     </table>
 
-    <th:block layout:fragment="script">
-        <script th:src="@{/page.js}"></script>
 
-
-        <script>
-                $('#pumpruns_list').DataTable({
-                    "order": [[0, "desc"]]
-                });
-        </script>
-    </th:block>
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script>
+        $('#pumpruns_list').DataTable({
+            "order": [[0, "desc"]]
+        });
+    </script>
 </div>
 </html>

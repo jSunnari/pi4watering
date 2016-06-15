@@ -2,7 +2,7 @@
 
 <div layout:fragment="content">
 
-    <table class="table table-striped" id="pumpruns_list">
+    <table class="display" id="pumpruns_list" cellspacing="0" width="100%">
         <thead>
         <tr>
             <th>Datum</th>
@@ -18,9 +18,9 @@
             <td class="message" data-th-text="${pumprun.pump}"></td>
             <td>
                 <a th:href="@{'/pumpruns/{id}/delete'(id=${pumprun.id})}" class="delete" th:attr="name=${pumprun.date}">
-                          <span class="fa-stack">
-                            <i class="glyphicon glyphicon-trash"></i>
-                        </span>
+            <span class="fa-stack">
+                <i class="glyphicon glyphicon-trash"></i>
+            </span>
                 </a>
             </td>
         </tr>

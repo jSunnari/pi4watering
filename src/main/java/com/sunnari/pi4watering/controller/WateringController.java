@@ -95,10 +95,9 @@ public class WateringController {
         }
     }
 
-    /**
-     * Scheduled to run every day, this is the regular watering day.
+    /* Scheduled to run every day, this is the regular watering day.
      * Will water for 10 seconds 7.40.
-     */
+
     @Scheduled(cron = "0 40 7 * * *")
     public void pump2Cron(){
         //If it has been cloudy in three days, don't water.
@@ -119,14 +118,16 @@ public class WateringController {
             badWeatherCounter = 0;
         }
     }
+    */
 
     //************************ WEATHER ************************
-
+    //Only for summer
+    /*
     /**
      * Scheduled to run only even days.
      * Checks clouds, if there is under 50% of clouds, it will water pump1.
      * Waters 15.00.
-     */
+
     @Scheduled(cron = "0 00 15 2-30/2 * *")
     public void pump1CheckWeather(){
         Weather weather = new Weather();
@@ -142,7 +143,7 @@ public class WateringController {
      * Checks clouds, if there is under 50% of clouds, it will water pump2.
      * if it's cloudy, increase the counter.
      * Waters 15.00.
-     */
+
     @Scheduled(cron = "0 00 15 * * *")
     public void pump2CheckWeather(){
         Weather weather = new Weather();
@@ -159,6 +160,8 @@ public class WateringController {
         }
 
     }
+
+    */
 
     @RequestMapping(value = "/minTemperature", method = RequestMethod.GET)
     public String getMinTemperature() {

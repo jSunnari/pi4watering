@@ -80,7 +80,7 @@ public class WateringController {
      * Scheduled to run only odd days, this is the regular watering day.
      * Will water for 11 seconds 7.40.
      */
-    @Scheduled(cron = "0 40 7 1-31/2 * *")
+    @Scheduled(cron = "0 0 17 1-31/2 * *")
     public void pump1Cron(){
         if (pump1 == null){
             pump1 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_04, "pump1", PinState.LOW);
@@ -95,10 +95,10 @@ public class WateringController {
         }
     }
 
-    /* Scheduled to run every day, this is the regular watering day.
+    /** Scheduled to run every day, this is the regular watering day.
      * Will water for 10 seconds 7.40.
-
-    @Scheduled(cron = "0 40 7 * * *")
+    */
+    //@Scheduled(cron = "0 40 7 * * *") <- not in use
     public void pump2Cron(){
         //If it has been cloudy in three days, don't water.
         if (badWeatherCounter <= 3) {
@@ -118,17 +118,16 @@ public class WateringController {
             badWeatherCounter = 0;
         }
     }
-    */
+
 
     //************************ WEATHER ************************
-    //Only for summer
-    /*
+
     /**
-     * Scheduled to run only even days.
+     * Scheduled to run only even day in the summer.
      * Checks clouds, if there is under 50% of clouds, it will water pump1.
      * Waters 15.00.
-
-    @Scheduled(cron = "0 00 15 2-30/2 * *")
+    */
+    //@Scheduled(cron = "0 00 15 2-30/2 5-9 *")
     public void pump1CheckWeather(){
         Weather weather = new Weather();
         double clouds = weather.getCloud();
@@ -139,12 +138,12 @@ public class WateringController {
     }
 
     /**
-     * Scheduled to run every day.
+     * Scheduled to run every day in the summer.
      * Checks clouds, if there is under 50% of clouds, it will water pump2.
      * if it's cloudy, increase the counter.
      * Waters 15.00.
-
-    @Scheduled(cron = "0 00 15 * * *")
+    */
+    //@Scheduled(cron = "0 00 15 * 5-9 *")
     public void pump2CheckWeather(){
         Weather weather = new Weather();
         double clouds = weather.getCloud();
@@ -160,8 +159,6 @@ public class WateringController {
         }
 
     }
-
-    */
 
     @RequestMapping(value = "/minTemperature", method = RequestMethod.GET)
     public String getMinTemperature() {
@@ -200,9 +197,7 @@ public class WateringController {
         DateFormat dateFormat = new SimpleDateFormat("HH'h' mm'm' ss's'");
         dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
         long uptime = mxBean.getUptime();
-        String uptimeStr = uptime / (3600 * 1000 * 24) + "d " + dateFormat.format(uptime);
-
-        return uptimeStr;
+        return uptime / (3600 * 1000 * 24) + "d " + dateFormat.format(uptime);
     }
 
 }

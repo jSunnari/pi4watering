@@ -37,7 +37,7 @@ If it's very cloudy three days in a streak, the program will not water that next
 </li>
 </ul>
 
-![wiring](https://dl.dropboxusercontent.com/u/6055409/pi4watering.jpg)
+![wiring](https://cloud.githubusercontent.com/assets/15261370/24668945/cb649e44-1968-11e7-8193-4912d6ba5919.jpg)
 
 <h2>Software:</h2>
 <ul>
@@ -62,16 +62,16 @@ h2 database
 </ul>
 
 Web interface:
-![screenshot interface](https://dl.dropboxusercontent.com/u/6055409/pi4watering%20screenshot1.png)
+![screenshot interface](https://cloud.githubusercontent.com/assets/15261370/24668944/cb4cb20c-1968-11e7-8175-fdca2cacfd36.png)
 
 Testing hardware:
-![pi4watering](https://dl.dropboxusercontent.com/u/6055409/pi4watering1.JPG)
+![pi4watering](https://cloud.githubusercontent.com/assets/15261370/24668948/cb6692ee-1968-11e7-8fcf-eaf6710788a9.JPG)
 
 Hardware running:
-![pi4watering](https://dl.dropboxusercontent.com/u/6055409/pi4watering2.JPG)
+![pi4watering](https://cloud.githubusercontent.com/assets/15261370/24668947/cb65c27e-1968-11e7-9eac-51f4d49bf262.jpg)
 
 Built hose holder: 
-![pi4watering](https://dl.dropboxusercontent.com/u/6055409/pi4watering3.JPG)
+![pi4watering](https://cloud.githubusercontent.com/assets/15261370/24668949/cb690416-1968-11e7-8d89-073310533754.jpg)
 
 On the balcony: 
-![pi4watering](https://dl.dropboxusercontent.com/u/6055409/pi4watering4.JPG)
+![pi4watering](https://cloud.githubusercontent.com/assets/15261370/24668946/cb6500d2-1968-11e7-99b8-3c3c8a2e01ec.jpg)
